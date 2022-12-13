@@ -1,1 +1,1 @@
-# kultivate-frist
+# kultivate-first
