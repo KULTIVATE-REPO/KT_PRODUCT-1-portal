@@ -1,0 +1,119 @@
+<nav class="navbar navbar-light bg-info">
+  <div class="container-fluid">
+    <h1 style="color:brown;font-family:cursive;">Kultivate Project</h1>
+    <div class="d-flex">
+      <button type="button" (click)="clickadddetails()" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-success">Add
+        details</button>
+    </div>
+  </div>
+</nav>
+<div class="search-bar" style="margin:10px "><label style="font-weight: bold;">Search  <input (keyup)="applyFilter($event)" [(ngModel)]="searchText" id="searchoption"
+  type="text" size="130" placeholder="Search here.." /></label>
+</div>
+<table id="tableStyle" class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Projects</th>
+      <th scope="col">Epic</th>
+      <th scope="col">Role Name</th>
+      <th scope="col">what</th>
+      <th scope="col">why</th>
+      <th scope="col">Table Name</th>
+      <th scope="col">Purpose</th>
+      <th scope="col">CRUD NAME</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let formValue of detailsdata | filter:searchText">
+      <td>{{formValue.Projects}}</td>
+      <td>{{formValue.Epic}}</td>
+      <td>{{formValue.Role_Name}}</td>
+      <td>{{formValue.what}}</td>
+      <td>{{formValue.why}}</td>
+      <td>{{formValue.Table_Name}}</td>
+      <td>{{formValue.Purpose}}</td>
+      <td>{{formValue.CRUD_NAME}}</td>
+      <td>
+      <div class="table">
+      <button type="button" (click)="onEdit(formValue)" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-info"><mat-icon>edit</mat-icon></button>
+      <button (click)="onDelete(formValue.id)" class="btn btn-danger mx-3">	<mat-icon>delete</mat-icon></button>
+    </div>
+    </td>
+    
+  </tbody>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" *ngIf="showadd" id="staticBackdropLabel">Project Details</h5>
+        <h5 class="modal-title" *ngIf="showupdate" id="staticBackdropLabel">Update Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3" >
+            <label class="form-label">Projects</label>
+            <input type="text" formControlName="Projects" class="form-control" >
+          </div>
+          <div class="mb-3" >
+              <label class="form-label">Epic</label>
+              <input formControlName="Epic" class="form-control" matInput type="text" [matAutocomplete]="auto" >
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let item of filteredOptions" [value]="item">
+                  {{item}}
+                </mat-option>
+              </mat-autocomplete>
+           </div> 
+          <div class="mb-3" >
+            <label class="form-label">Role Name</label>
+            <input formControlName="Role_Name" class="form-control" matInput type="text" [matAutocomplete]="auto" >
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let item1 of filteredOptions1" [value]="item1">
+                  {{item1}}
+                </mat-option>
+              </mat-autocomplete>
+          </div>
+          <div class="mb-3" >
+            <label class="form-label">what</label>
+            <input type="text" formControlName="what" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">why</label>
+            <input type="text" formControlName="why" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Table Name</label>
+            <input type="text" formControlName="Table_Name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Purpose</label>
+            <input type="text" formControlName="Purpose" class="form-control">
+          </div>
+          <div class="mb-3" >
+            <label class="form-label">CRUD NAME</label><br>
+            <input type="checkbox" formControlName="CRUD_NAME" id="create" name="create"value="create">
+            <label for="create"></label> Create 
+            <input type="checkbox"formControlName="CRUD_NAME" id="Read" name="Read"value="Read"> 
+            <label for="Read"></label> Read  
+            <input type="checkbox"formControlName="CRUD_NAME" id="update" name="update"value="update">
+            <label for="update"></label> Update 
+            <input type="checkbox"formControlName="CRUD_NAME" id="delete" name="delete"value="delete">
+            <label for="delete"></label> Delete 
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+        <button type="submit" *ngIf="showadd"(click)="postprojectdetails()" class="btn btn-primary">submit</button>
+        <button type="submit" *ngIf="showupdate"(click)="updateprojectdetails()" class="btn btn-primary">update</button>
+        
+      </div>
+      
+     
+    </div>
+  </div>
+</div>

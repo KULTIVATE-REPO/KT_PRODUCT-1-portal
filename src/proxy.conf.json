@@ -1,0 +1,10 @@
+{"/api" : {
+    "traget":"http://127.0.0.1:8000/database/post/",
+    "secure":false,
+    "pathRewrite":{
+        "^/api":""
+    },
+    "changeOrigin":false,
+    "logLevel":"debug"
+}
+}

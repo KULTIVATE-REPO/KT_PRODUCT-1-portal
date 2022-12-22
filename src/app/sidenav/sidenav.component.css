@@ -1,0 +1,26 @@
+.logo {
+    text-align: center;
+    padding: 2.6rem 1rem;
+    
+}
+img{
+    width: 200px;
+}
+.mat-icon{
+    vertical-align: center;
+    margin-right: 1rem;
+
+}
+.mat-divider{
+    border-top-width: 2px ;
+
+}
+.mat-list-item{
+    color: #94a3b8 !important;
+    font-size: 1rem;
+    height: 55px !important;
+    margin-bottom: 4px;
+    border-radius: 5px;
+    margin: 0 8px;
+   
+    }
