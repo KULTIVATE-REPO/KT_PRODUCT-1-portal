@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from
 import { ServiceService } from '../service.service';
 import { projectModel } from './database.model';
 import { HttpClient, } from '@angular/common/http'
-import { isNgTemplate } from '@angular/compiler';
+import { isNgTemplate, ThisReceiver } from '@angular/compiler';
 import { resetFakeAsyncZone } from '@angular/core/testing';
 
 
@@ -91,7 +91,7 @@ filterData1(enteredData: string){
 
  
   clickadddetails(){
-    // console.log(ThisReceiver)
+    console.log("sasas",ThisReceiver)
     this.formValue.reset();   
     this.showadd=true;
     this.showupdate=false;

@@ -14,10 +14,30 @@
     margin-top: -2rem;
     background: white;
     color: black;
-    font-size: 2rem;}
-    .page__content-data {
+    }
+    /* .page__content-data {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
+   */
+   a{
+    color: black;
+    
+    font-family:Georgia, serif;
+    
+    border-radius: 20px;}
+.id{
+  border-radius: 5px;
+  margin-top: 05px;
+  padding: 1px 203px;
+  font-size: 20px;
   
+  cursor: pointer;
+}
+.id{
+  background-color:#fff;
+}
+.id:hover{
+  background-color:#94a3b8 ;  
+}

@@ -6,17 +6,44 @@
     <mat-divider></mat-divider>
 
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
-    <mat-icon>home</mat-icon> Home
+    <mat-icon>A</mat-icon> Aavin
 </a>
 <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
-  <mat-icon>dashboard</mat-icon> Dashboard
+  <mat-icon>dashboard</mat-icon> CCGBT
 </a>
 <a mat-list-item routerLinkActive="list-item-active" routerLink="/database">
-    <mat-icon>Database</mat-icon> Database
+    <mat-icon>table_chart</mat-icon> Project
   </a>
+  <!-- <div style="position: absolute;bottom:15px;left: 25px;">  -->
+    <!-- <div class="modal-footer"> -->
+    <!-- <mat-icon>add_to_queue</mat-icon>
+    <button type="button"  data-bs-toggle="modal" (click)="Project()" data-bs-target="#staticBackdrop" class="btn btn-dark">Project</button>
   
-<a mat-list-item> <mat-icon>edit</mat-icon> Link 3 </a>
-
-   
-</mat-nav-list>
-</div>
+  </div>
+  <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"  id="staticBackdropLabel">Project Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="Projectform">>
+          <div class="mb-3" >
+            <label class="form-label">Projects</label>
+            <input type="text" formControlName="Project" class="form-control" >
+          </div></form></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            
+            <button type="submit" (click)="proadd()" class="btn btn-primary">submit</button>
+          </div>    
+ -->
+<button  type="button" (click)="Project()">Project</button>
+<form [formGroup]="Projectform">
+  <label>Project</label>
+  <input type="text" formControlName="Project" class="form-control" >
+</form>
+<button type="button">Close</button>
+<button type="submit" (click)="proadd()">submit</button>
